@@ -68,5 +68,7 @@ export interface DialogData {
   firstname: string;
   lastname: string;
   contact: number;
-  message: string
+  message: string;
+  date: string
+
 }

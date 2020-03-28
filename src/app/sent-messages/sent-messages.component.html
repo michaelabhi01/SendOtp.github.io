@@ -1,0 +1,53 @@
+<div class="mat-elevation-z8" style="margin-top: 45px;
+margin-left: 380px;
+margin-right: 380px;">
+
+    <table id="table" style="margin-left: 112px;" mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="Elements">
+
+        <ng-container matColumnDef="index">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> S.No.</th>
+            <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstname">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> First Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="lastname">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Last Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="contact">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Contact </th>
+            <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Date</th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="message">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Message</th>
+            <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-button matTooltip="View more details" class="btn btn-info" style="margin: 8px;
+     padding: 0px;" type="button" name="detail" (click)="openDialog(row)">Show Details</button>
+            </td>
+        </ng-container> -->
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row (click)="openDialog(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <!-- <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5,10,15,20]">
+    </mat-paginator> -->
+</div>
